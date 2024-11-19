@@ -4,6 +4,7 @@ import AdventureDetails from "../pages/AdventureDetails";
 import BlogsDetails from "../pages/BlogsDetails";
 import BlogsPage from "../pages/BlogsPage";
 import ErrorPage from "../pages/ErrorPage";
+import ForgotPassword from "../pages/ForgotPassword";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Profile from "../pages/Profile";
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
       {
         path: "/updateProfile",
         element: <UpdateProfile />,
+      },
+      {
+        path: "/forgotPassword",
+        element: <ForgotPassword />,
       },
     ],
   },

@@ -7,8 +7,7 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../context/authContext";
 
 export default function Login() {
-  const { singInUser, setUser, resetPassword, singInWithGoogle } =
-    useContext(AuthContext);
+  const { singInUser, setUser, singInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const emailRef = useRef();
@@ -46,21 +45,8 @@ export default function Login() {
       });
   };
 
-  const handleClick = () => {
-    const email = emailRef.current.value;
-
-    // reset the password
-    resetPassword(email)
-      .then(() => {
-        toast(" Password reset email sent!", {
-          position: "top-center",
-        });
-      })
-      .catch((error) => {
-        toast(error.message.slice(17, 35), {
-          position: "top-center",
-        });
-      });
+  const handlePasswordReset = () => {
+    navigate("/forgotPassword", { state: { email: emailRef.current.value } });
   };
 
   return (
@@ -112,7 +98,7 @@ export default function Login() {
           <label className="label">
             <button
               type="button"
-              onClick={handleClick}
+              onClick={handlePasswordReset}
               className="label-text-alt link link-hover"
             >
               Forgot password?

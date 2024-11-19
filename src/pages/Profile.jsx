@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 
 export default function Profile() {
@@ -20,9 +21,12 @@ export default function Profile() {
         <h2 className="text-2xl font-semibold">{user.displayName}</h2>
         <p className="text-gray-600">{user.email}</p>
 
-        <button className="btn bg-green-600 hover:bg-green-600 text-white mt-6">
+        <Link
+          to={"/updateProfile"}
+          className="btn bg-green-600 hover:bg-green-600 text-white mt-6"
+        >
           Update Profile
-        </button>
+        </Link>
       </div>
     </div>
   );

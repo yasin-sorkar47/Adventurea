@@ -37,7 +37,7 @@ const Navbar = () => {
 
           {user && (
             <Link
-              to="/update-profile"
+              to="/updateProfile"
               className="text-white hover:text-yellow-400 "
             >
               Update Profile
@@ -90,7 +90,7 @@ const Navbar = () => {
 
             {user && (
               <Link
-                to="/update-profile"
+                to="/updateProfile"
                 className="text-white hover:text-yellow-400 "
               >
                 Update Profile

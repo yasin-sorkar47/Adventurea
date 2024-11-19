@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function Adventure({ adventure }) {
   return (
     <div
+      data-aos="fade-left"
       key={adventure.id}
       className="card shadow-lg rounded-lg overflow-hidden"
     >

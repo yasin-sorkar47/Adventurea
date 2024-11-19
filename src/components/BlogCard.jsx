@@ -5,7 +5,10 @@ const BlogCard = ({ blog }) => {
   const { title, image, date, shortDescription, id } = blog;
 
   return (
-    <div className=" bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+    <div
+      data-aos="fade-right"
+      className=" bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300"
+    >
       <img className="w-full h-48 object-cover" src={image} alt={title} />
       <div className="p-5">
         <h2 className="text-xl font-semibold text-gray-800 hover:text-green-600 transition-colors duration-200">

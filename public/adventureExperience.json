@@ -1,0 +1,176 @@
+[
+  {
+    "id": 1,
+    "title": "Alpine Adventure in the Swiss Alps Trek",
+    "image": "https://www.salzburgadventures.com/image.php/image-name.jpg?width=1100&cropratio=16:9&image=/images/media/11707-Rafting_mobil.jpg",
+    "category": "Mountain Treks",
+    "shortDescription": "Explore the breathtaking Swiss Alps on a challenging yet rewarding trek.",
+    "adventureCost": 2500,
+    "bookingAvailability": true,
+    "location": "Swiss Alps, Switzerland",
+    "duration": "8 Days / 7 Nights",
+    "adventureLevel": "Advanced",
+    "includedItems": [
+      "Professional mountain guide",
+      "All meals and snacks",
+      "Lodging in eco-friendly chalets",
+      "Transportation from airport"
+    ],
+    "ecoFriendlyFeatures": [
+      "Electric shuttle services",
+      "Locally sourced food ingredients",
+      "Recycling and waste management"
+    ],
+    "maxGroupSize": 10,
+    "specialInstructions": [
+      "Carry warm clothing and hiking boots.",
+      "Bring reusable water bottles and trekking poles.",
+      "Follow the Leave No Trace principles."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Rainforest Expedition in Borneo",
+    "image": "https://www.bayofplentynz.com/assets/M-Menu/Mauao-adventures-stand-up-paddle-boarding__ScaleMaxWidthWzE5MjBd.jpg",
+    "category": "Forest Expeditions",
+    "shortDescription": "Discover the wonders of Borneo's lush rainforests with expert guides.",
+    "adventureCost": 1800,
+    "bookingAvailability": true,
+    "location": "Borneo, Malaysia",
+    "duration": "6 Days / 5 Nights",
+    "adventureLevel": "Intermediate",
+    "includedItems": [
+      "Local bilingual guide",
+      "Eco-lodge accommodation",
+      "Rainforest survival gear",
+      "All meals and snacks"
+    ],
+    "ecoFriendlyFeatures": [
+      "Support for local conservation projects",
+      "Eco-friendly accommodation",
+      "Minimal-impact exploration practices"
+    ],
+    "maxGroupSize": 12,
+    "specialInstructions": [
+      "Pack insect repellent and waterproof clothing.",
+      "Avoid single-use plastics; use reusable containers.",
+      "Respect wildlife and their habitats."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Desert Camping in Wadi Rum",
+    "image": "https://i0.wp.com/theirishexperience.com/wp-content/uploads/2021/03/20200613_104702-01.jpg?resize=650%2C509&ssl=1",
+    "category": "Desert Exploration",
+    "shortDescription": "Experience the serene beauty of Jordan's Wadi Rum desert under the stars.",
+    "adventureCost": 1200,
+    "bookingAvailability": false,
+    "location": "Wadi Rum, Jordan",
+    "duration": "3 Days / 2 Nights",
+    "adventureLevel": "Beginner",
+    "includedItems": [
+      "Camel rides",
+      "Traditional Bedouin meals",
+      "Luxury desert tents",
+      "Evening cultural performances"
+    ],
+    "ecoFriendlyFeatures": [
+      "Solar-powered tents",
+      "Zero-waste cooking methods",
+      "Reusable utensils and water bottles"
+    ],
+    "maxGroupSize": 15,
+    "specialInstructions": [
+      "Bring sunscreen, a hat, and comfortable shoes.",
+      "Carry a reusable water bottle.",
+      "Follow local customs and respect Bedouin traditions."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Whitewater Rafting on the Thunder River",
+    "image": "https://exploregeorgia.org/sites/default/files/styles/editorial_list_l/public/2022-06/whitewater-rafting-rolling-thunder-river-company-mccaysville-fb.jpg?itok=3VxNkmYG",
+    "category": "Water Adventures",
+    "shortDescription": "Feel the rush of adrenaline on a thrilling rafting expedition in the heart of Georgia.",
+    "adventureCost": 900,
+    "bookingAvailability": true,
+    "location": "Thunder River, Georgia, USA",
+    "duration": "1 Day",
+    "adventureLevel": "Intermediate",
+    "includedItems": [
+      "Rafting guide",
+      "Rafting gear and life jackets",
+      "All meals and refreshments",
+      "Transportation to/from the river"
+    ],
+    "ecoFriendlyFeatures": [
+      "Leave no trace policy",
+      "Eco-friendly rafting equipment",
+      "Waste management practices"
+    ],
+    "maxGroupSize": 12,
+    "specialInstructions": [
+      "Wear a swimsuit and water shoes.",
+      "Bring a waterproof camera.",
+      "Prepare for potential water splashes."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Kayaking in Hjorundfjord",
+    "image": "https://www.norway-adventures.com/wp-content/uploads/2023/02/Hjorundfjord-kayaking-Norway-Adventures_home_banner-2.jpg",
+    "category": "Water Adventures",
+    "shortDescription": "Paddle through the serene and picturesque Hjorundfjord in Norway, surrounded by majestic mountains.",
+    "adventureCost": 1500,
+    "bookingAvailability": true,
+    "location": "Hjorundfjord, Norway",
+    "duration": "4 Days / 3 Nights",
+    "adventureLevel": "Beginner",
+    "includedItems": [
+      "Kayak rental",
+      "Guide and safety instructions",
+      "Meals and snacks",
+      "Lodging at eco-lodges"
+    ],
+    "ecoFriendlyFeatures": [
+      "Eco-friendly kayaks",
+      "Carbon offset for travel",
+      "Sustainable food sourcing"
+    ],
+    "maxGroupSize": 8,
+    "specialInstructions": [
+      "Pack warm clothing and a waterproof jacket.",
+      "Bring your own dry bags for valuables.",
+      "Follow local environmental guidelines."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Stand-Up Paddleboarding in the Algarve",
+    "image": "https://www.ropeadventures.pt/images/slideshow/sup_wave.webp",
+    "category": "Water Adventures",
+    "shortDescription": "Enjoy the calm waters of the Algarve while mastering the art of stand-up paddleboarding.",
+    "adventureCost": 450,
+    "bookingAvailability": true,
+    "location": "Algarve, Portugal",
+    "duration": "1 Day",
+    "adventureLevel": "Beginner",
+    "includedItems": [
+      "SUP board and paddle",
+      "Safety instructions",
+      "Beach gear and towel",
+      "Water and snacks"
+    ],
+    "ecoFriendlyFeatures": [
+      "Eco-friendly paddleboards",
+      "Sustainable beach practices",
+      "Plastic-free event"
+    ],
+    "maxGroupSize": 10,
+    "specialInstructions": [
+      "Wear comfortable clothing and sunscreen.",
+      "Bring your own reusable water bottle.",
+      "Respect the beach environment."
+    ]
+  }
+]

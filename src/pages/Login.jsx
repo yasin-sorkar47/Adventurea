@@ -1,12 +1,15 @@
-import { useContext, useState } from "react";
-import { FaGoogle } from "react-icons/fa";
+import { useContext, useRef, useState } from "react";
+import { FiEye } from "react-icons/fi";
+import { GoEyeClosed } from "react-icons/go";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../context/authContext";
 
 export default function Login() {
-  const { singInUser, setUser, singInWithGoogle } = useContext(AuthContext);
+  const { singInUser, setUser, resetPassword } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [error, setError] = useState("");
+  const [show, setShow] = useState(false);
+  const emailRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,27 +19,31 @@ export default function Login() {
 
     singInUser(email, password)
       .then((result) => {
-        console.log(result.user);
         setUser(result.user);
         navigate("/");
       })
       .catch((error) => {
         setUser(null);
-
-        console.log(error.message);
-        setError(error.message);
+        toast(error.message.slice(17, 40), {
+          position: "top-center",
+        });
       });
   };
 
   const handleClick = () => {
-    singInWithGoogle()
-      .then((result) => {
-        setUser(result.user);
-        navigate("/");
+    const email = emailRef.current.value;
+
+    // reset the password
+    resetPassword(email)
+      .then(() => {
+        toast(" Password reset email sent!", {
+          position: "top-center",
+        });
       })
       .catch((error) => {
-        setUser(null);
-        setError(error.message);
+        toast(error.message, {
+          position: "top-center",
+        });
       });
   };
 
@@ -49,6 +56,7 @@ export default function Login() {
             <span className="label-text">Email</span>
           </label>
           <input
+            ref={emailRef}
             type="email"
             name="email"
             placeholder="email"
@@ -56,18 +64,44 @@ export default function Login() {
             required
           />
         </div>
-        <div className="form-control">
+        <div className="form-control relative">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
           <input
-            type="password"
+            type={show ? "text" : "password"}
             name="password"
             placeholder="password"
-            className="input input-bordered"
+            className="input input-bordered "
             required
           />
-          {error && <p className="text-red-600">this {error.slice(22, 42)}</p>}
+          {show ? (
+            <button
+              onClick={() => setShow(false)}
+              type="button"
+              className="absolute right-4 top-[53px]"
+            >
+              <GoEyeClosed />
+            </button>
+          ) : (
+            <button
+              onClick={() => setShow(true)}
+              type="button"
+              className="absolute right-4 top-[53px]"
+            >
+              <FiEye />
+            </button>
+          )}
+
+          <label className="label">
+            <button
+              type="button"
+              onClick={handleClick}
+              className="label-text-alt link link-hover"
+            >
+              Forgot password?
+            </button>
+          </label>
           <label className="mt-3">
             if you don't have an account please
             <Link
@@ -78,24 +112,12 @@ export default function Login() {
             </Link>
           </label>
         </div>
-
         <div className="form-control mt-6">
           <button className="btn bg-green-500 hover:bg-green-600 text-white font-bold">
             Login
           </button>
         </div>
       </form>
-
-      <div className="pb-10 px-8">
-        <button
-          type="button"
-          onClick={handleClick}
-          className="btn bg-green-500 hover:bg-green-600 text-white text-[18px] font-bold w-full flex items-center"
-        >
-          Login with Google
-          <FaGoogle />
-        </button>
-      </div>
     </div>
   );
 }

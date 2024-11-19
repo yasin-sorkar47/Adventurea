@@ -1,4 +1,5 @@
-import { FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -8,21 +9,27 @@ export default function Footer() {
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-x-4">
-          <button>
+          <Link to={"https://x.com/yasinsorkar47"} target="_blank">
             <FaTwitter className="text-2xl text-white" />
-          </button>
-          <button>
-            <FaYoutube className="text-2xl text-white" />
-          </button>
-          <button>
+          </Link>
+          <Link to={"https://github.com/yasin-sorkar47"} target="_blank">
+            <FaGithub className="text-2xl text-white" />
+          </Link>
+          <Link
+            to={"https://www.linkedin.com/in/yasin-sarkar-24444b298/"}
+            target="_blank"
+          >
+            <FaLinkedin className="text-2xl text-white" />
+          </Link>
+          <Link to={"https://www.facebook.com/@yasinSarkar47"} target="_blank">
             <FaFacebookF className="text-2xl text-white" />
-          </button>
+          </Link>
         </div>
       </nav>
       <aside>
         <p className="text-white">
-          Copyright © {new Date().getFullYear()} - All right reserved by ACME
-          Industries Ltd
+          Copyright © {new Date().getFullYear()} - All right reserved by Yasin
+          Sarkar
         </p>
       </aside>
     </footer>

@@ -34,6 +34,11 @@ const Navbar = () => {
           <Link to="/blogs" className="text-white hover:text-yellow-400 ">
             Blogs
           </Link>
+
+          <Link to="/register" className="text-white hover:text-yellow-400">
+            Register
+          </Link>
+
           {user && (
             <Link
               to="/update-profile"
@@ -43,22 +48,16 @@ const Navbar = () => {
             </Link>
           )}
 
-          <Link to="/register" className="text-white hover:text-yellow-400">
-            Register
-          </Link>
-
           {user ? (
             <div className="relative flex items-center">
               <Link to={"/profile"} className="flex items-center">
                 <img
+                  title={user?.displayName}
                   referrerPolicy="no-referrer"
                   src={user?.photoURL}
                   alt="User Profile"
                   className="w-10 h-10 rounded-full border-2 border-white"
                 />
-                <span className="ml-2 text-white hover:text-yellow-400">
-                  {user?.displayName}
-                </span>
               </Link>
               <button
                 onClick={handleClick}
@@ -84,6 +83,10 @@ const Navbar = () => {
               Blogs
             </Link>
 
+            <Link to="/register" className="text-white hover:text-yellow-400">
+              Register
+            </Link>
+
             {user && (
               <Link
                 to="/update-profile"
@@ -93,22 +96,16 @@ const Navbar = () => {
               </Link>
             )}
 
-            <Link to="/register" className="text-white hover:text-yellow-400">
-              Register
-            </Link>
-
             {user ? (
               <div className="relative flex items-center flex-col gap-y-2">
                 <Link to={"/profile"} className="flex items-center">
                   <img
+                    title={user?.displayName}
                     referrerPolicy="no-referrer"
                     src={user?.photoURL}
                     alt="User Profile"
                     className="w-10 h-10 rounded-full border-2 border-white"
                   />
-                  <span className="ml-2 text-white hover:text-yellow-400">
-                    {user?.displayName}
-                  </span>
                 </Link>
                 <button
                   onClick={handleClick}

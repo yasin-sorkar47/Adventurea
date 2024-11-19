@@ -1,11 +1,14 @@
 import { useContext, useState } from "react";
+import { FaGoogle } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
 import { GoEyeClosed } from "react-icons/go";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../context/authContext";
 
 export default function Register() {
-  const { createUser, setUser, updateUser } = useContext(AuthContext);
+  const { createUser, setUser, updateUser, singInWithGoogle } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [show, setShow] = useState(false);
@@ -59,8 +62,23 @@ export default function Register() {
           });
       })
       .catch((error) => {
-        setError(error);
-        console.log(error);
+        toast(error.message.slice(17, 42), {
+          position: "top-center",
+        });
+      });
+  };
+
+  const handleClick = () => {
+    singInWithGoogle()
+      .then((result) => {
+        setUser(result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        setUser(null);
+        toast(error.message, {
+          position: "top-center",
+        });
       });
   };
 
@@ -134,9 +152,6 @@ export default function Register() {
           )}
 
           {error && <p className="text-red-600">{error}</p>}
-          {error.message && (
-            <p className="text-red-600">this {error.slice(22, 42)}</p>
-          )}
           <label className="mt-3">
             if you already have an account please
             <Link
@@ -153,6 +168,16 @@ export default function Register() {
           </button>
         </div>
       </form>
+      <div className="pb-10 px-8">
+        <button
+          type="button"
+          onClick={handleClick}
+          className="btn bg-green-500 hover:bg-green-600 text-white text-[18px] font-bold w-full flex items-center"
+        >
+          Login with Google
+          <FaGoogle />
+        </button>
+      </div>
     </div>
   );
 }

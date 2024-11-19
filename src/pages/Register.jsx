@@ -148,7 +148,9 @@ export default function Register() {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn bg-green-500 hover:bg-green-600 text-white font-bold">
+            Register
+          </button>
         </div>
       </form>
     </div>

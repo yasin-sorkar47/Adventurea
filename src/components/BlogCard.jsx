@@ -1,16 +1,8 @@
-import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/authContext";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const BlogCard = ({ blog }) => {
-  const navigate = useNavigate();
-  const { setLoading } = useContext(AuthContext);
   const { title, image, date, shortDescription, id } = blog;
-
-  const handleClick = () => {
-    navigate(`/blog/details/${id}`);
-    setLoading(false);
-  };
 
   return (
     <div className=" bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow duration-300">
@@ -22,12 +14,12 @@ const BlogCard = ({ blog }) => {
         <p className="text-gray-600 text-sm mt-3">{shortDescription}</p>
         <div className="flex items-center justify-between mt-4">
           <span className="text-gray-500 text-sm">{date}</span>
-          <button
-            onClick={handleClick}
+          <Link
+            to={`/blog/details/${id}`}
             className="text-white bg-green-500 hover:bg-green-600 font-medium rounded-lg text-sm px-4 py-2 transition-colors duration-200"
           >
             Read More
-          </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -41,11 +41,11 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        console.log(currentUser);
         setUser(currentUser);
         setLoading(false);
       } else {
         console.log("user is LoggedOut");
+        setLoading(false);
       }
     });
 

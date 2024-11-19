@@ -1,16 +1,6 @@
-import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/authContext";
+import { Link } from "react-router-dom";
 
 export default function Adventure({ adventure }) {
-  const navigate = useNavigate();
-  const { setLoading } = useContext(AuthContext);
-
-  const handleClick = () => {
-    navigate(`/adventure/${adventure.id}`);
-    setLoading(false);
-  };
-
   return (
     <div
       key={adventure.id}
@@ -31,12 +21,12 @@ export default function Adventure({ adventure }) {
             </li>
           ))}
         </ul>
-        <button
-          onClick={handleClick}
+        <Link
+          to={`/adventure/${adventure.id}`}
           className="bg-green-600 text-white px-4 py-2  rounded-lg hover:bg-green-700"
         >
           Explore Now
-        </button>
+        </Link>
       </div>
     </div>
   );

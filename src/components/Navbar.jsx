@@ -54,6 +54,9 @@ const Navbar = () => {
                   alt="User Profile"
                   className="w-10 h-10 rounded-full border-2 border-white"
                 />
+                <span className="text-white hover:text-yellow-400 ml-2">
+                  My Profile
+                </span>
               </Link>
               <button
                 onClick={handleClick}
@@ -107,6 +110,7 @@ const Navbar = () => {
                     alt="User Profile"
                     className="w-10 h-10 rounded-full border-2 border-white"
                   />
+                  <span>My Profile</span>
                 </Link>
                 <button
                   onClick={handleClick}

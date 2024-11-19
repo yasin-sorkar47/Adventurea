@@ -76,9 +76,12 @@ const Navbar = () => {
 
         {/* for mobile  */}
         {show && (
-          <div className=" items-center  flex flex-col absolute right-0 top-20 bg-green-600 p-6 gap-y-2 ">
+          <div className="z-50 items-center  flex flex-col absolute right-0 top-20 bg-green-600 p-6 gap-y-2 ">
             <Link to="/" className="text-white hover:text-yellow-400 ">
               Home
+            </Link>
+            <Link to="/blogs" className="text-white hover:text-yellow-400 ">
+              Blogs
             </Link>
 
             {user && (
@@ -90,19 +93,27 @@ const Navbar = () => {
               </Link>
             )}
 
+            <Link to="/register" className="text-white hover:text-yellow-400">
+              Register
+            </Link>
+
             {user ? (
               <div className="relative flex items-center flex-col gap-y-2">
-                <div className="flex items-center">
+                <Link to={"/profile"} className="flex items-center">
                   <img
-                    src={user.photoUrl}
+                    referrerPolicy="no-referrer"
+                    src={user?.photoURL}
                     alt="User Profile"
                     className="w-10 h-10 rounded-full border-2 border-white"
                   />
                   <span className="ml-2 text-white hover:text-yellow-400">
-                    {user.name}
+                    {user?.displayName}
                   </span>
-                </div>
-                <button className="ml-4 text-white hover:text-yellow-400 ">
+                </Link>
+                <button
+                  onClick={handleClick}
+                  className="ml-4 text-white hover:text-yellow-400 "
+                >
                   Logout
                 </button>
               </div>

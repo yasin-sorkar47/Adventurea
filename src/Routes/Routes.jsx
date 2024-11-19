@@ -3,6 +3,7 @@ import MainLayOuts from "../layOuts/MainLayOuts";
 import AdventureDetails from "../pages/AdventureDetails";
 import BlogsDetails from "../pages/BlogsDetails";
 import BlogsPage from "../pages/BlogsPage";
+import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Profile from "../pages/Profile";
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOuts />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",

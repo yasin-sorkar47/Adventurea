@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from "react";
+import { FaGoogle } from "react-icons/fa";
 import { FiEye } from "react-icons/fi";
 import { GoEyeClosed } from "react-icons/go";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +7,8 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../context/authContext";
 
 export default function Login() {
-  const { singInUser, setUser, resetPassword } = useContext(AuthContext);
+  const { singInUser, setUser, resetPassword, singInWithGoogle } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const emailRef = useRef();
@@ -30,6 +32,20 @@ export default function Login() {
       });
   };
 
+  const handleLoginWithGoogle = () => {
+    singInWithGoogle()
+      .then((result) => {
+        setUser(result.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        setUser(null);
+        toast(error.message, {
+          position: "top-center",
+        });
+      });
+  };
+
   const handleClick = () => {
     const email = emailRef.current.value;
 
@@ -41,7 +57,7 @@ export default function Login() {
         });
       })
       .catch((error) => {
-        toast(error.message, {
+        toast(error.message.slice(17, 35), {
           position: "top-center",
         });
       });
@@ -118,6 +134,17 @@ export default function Login() {
           </button>
         </div>
       </form>
+
+      <div className="pb-10 px-8">
+        <button
+          type="button"
+          onClick={handleLoginWithGoogle}
+          className="btn bg-green-500 hover:bg-green-600 text-white text-[18px] font-bold w-full flex items-center"
+        >
+          Login with Google
+          <FaGoogle />
+        </button>
+      </div>
     </div>
   );
 }

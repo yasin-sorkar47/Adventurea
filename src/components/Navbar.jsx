@@ -35,10 +35,6 @@ const Navbar = () => {
             Blogs
           </Link>
 
-          <Link to="/register" className="text-white hover:text-yellow-400">
-            Register
-          </Link>
-
           {user && (
             <Link
               to="/update-profile"
@@ -67,9 +63,14 @@ const Navbar = () => {
               </button>
             </div>
           ) : (
-            <Link to="/login" className="text-white hover:text-yellow-400">
-              Login
-            </Link>
+            <>
+              <Link to="/register" className="text-white hover:text-yellow-400">
+                Register
+              </Link>
+              <Link to="/login" className="text-white hover:text-yellow-400">
+                Login
+              </Link>
+            </>
           )}
         </div>
 
@@ -115,9 +116,17 @@ const Navbar = () => {
                 </button>
               </div>
             ) : (
-              <Link to="/login" className="text-white hover:text-yellow-400">
-                Login
-              </Link>
+              <>
+                <Link
+                  to="/register"
+                  className="text-white hover:text-yellow-400"
+                >
+                  Register
+                </Link>
+                <Link to="/login" className="text-white hover:text-yellow-400">
+                  Login
+                </Link>
+              </>
             )}
           </div>
         )}

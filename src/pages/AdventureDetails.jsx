@@ -1,4 +1,5 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
 
 export default function AdventureDetails() {
   const data = useLoaderData();
@@ -19,6 +20,21 @@ export default function AdventureDetails() {
     maxGroupSize,
     specialInstructions,
   } = data.find((item) => item.id == params.id);
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleTalkWithExpert = () => {
+    const currentTime = new Date();
+    const currentHours = currentTime.getHours();
+    const startHour = 10;
+    const endHour = 20;
+
+    if (currentHours >= startHour && currentHours < endHour) {
+      window.open("https://meet.google.com/", "_blank");
+    } else {
+      setShowModal(true);
+    }
+  };
 
   return (
     <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-lg p-6 mt-10 mb-14">
@@ -104,13 +120,32 @@ export default function AdventureDetails() {
       </div>
 
       <div className="mt-6 flex justify-center">
-        <Link
-          to={-1}
+        <button
+          onClick={handleTalkWithExpert}
           className="bg-green-500 text-white px-6 py-2 rounded-lg text-lg font-semibold hover:bg-green-600 transition-all"
         >
-          Book Now
-        </Link>
+          Talk with Expert
+        </button>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-md">
+            <h2 className="text-2xl font-semibold mb-4">Consultation Hours</h2>
+            <p className="text-gray-600">
+              Our experts are available from <strong>10:00 AM</strong> to{" "}
+              <strong>8:00 PM</strong>. Please try again during these hours.
+            </p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="btn btn-error mt-4"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default function UpdateProfile() {
         toast("profile update successfully.", {
           position: "top-center",
         });
-        navigate("/");
+        navigate("/profile");
         setLoading(false);
       })
       .catch((error) => {
@@ -33,7 +33,10 @@ export default function UpdateProfile() {
 
   return (
     <div className="card bg-base-100 w-full max-w-xl shrink-0 shadow-2xl mx-auto my-32">
-      <h1 className="text-2xl font-bold text-center mt-6"> Register Form</h1>
+      <h1 className="text-2xl font-bold text-center mt-6">
+        {" "}
+        Update Profile Form
+      </h1>
       <form onSubmit={handleSubmit} className="card-body">
         <div className="form-control">
           <label className="label">

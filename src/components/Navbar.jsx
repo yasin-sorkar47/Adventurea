@@ -1,11 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/authContext";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
   const { user, setUser, signOutUser } = useContext(AuthContext);
+  const location = useLocation();
 
   const navigate = useNavigate();
 
@@ -21,6 +22,18 @@ const Navbar = () => {
       });
   };
 
+  useEffect(() => {
+    if (location.pathname === "/") {
+      document.title = "Adventurea | Home";
+    } else if (location.pathname === "/blogs") {
+      document.title = "Adventurea | Blogs";
+    } else if (location.pathname === "/updateProfile") {
+      document.title = "Adventurea | Update Profile";
+    } else if (location.pathname === "/profile") {
+      document.title = "Adventurea | My Profile";
+    }
+  }, [location.pathname]);
+
   return (
     <nav className="bg-green-600 p-4 ">
       <div className="w-11/12 mx-auto flex justify-between items-center relative">
@@ -28,36 +41,37 @@ const Navbar = () => {
           Adventurea
         </Link>
         <div className=" items-center md:space-x-10 hidden md:flex ">
-          <Link to="/" className="text-white hover:text-yellow-400 ">
+          <NavLink to="/" className="text-white hover:text-yellow-400 ">
             Home
-          </Link>
-          <Link to="/blogs" className="text-white hover:text-yellow-400 ">
+          </NavLink>
+          <NavLink to="/blogs" className="text-white hover:text-yellow-400 ">
             Blogs
-          </Link>
+          </NavLink>
 
           {user && (
-            <Link
+            <NavLink
               to="/updateProfile"
               className="text-white hover:text-yellow-400 "
             >
               Update Profile
-            </Link>
+            </NavLink>
           )}
 
           {user ? (
             <div className="relative flex items-center">
-              <Link to={"/profile"} className="flex items-center">
+              <NavLink
+                to={"/profile"}
+                className="flex items-center text-white hover:text-yellow-400 "
+              >
                 <img
                   title={user?.displayName}
                   referrerPolicy="no-referrer"
                   src={user?.photoURL}
                   alt="User Profile"
-                  className="w-10 h-10 rounded-full border-2 border-white"
+                  className="w-10 h-10 rounded-full border-2 border-white mr-3"
                 />
-                <span className="text-white hover:text-yellow-400 ml-2">
-                  My Profile
-                </span>
-              </Link>
+                My Profile
+              </NavLink>
               <button
                 onClick={handleClick}
                 className="ml-4 text-white hover:text-yellow-400 "
@@ -67,12 +81,15 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <Link to="/register" className="text-white hover:text-yellow-400">
+              <NavLink
+                to="/register"
+                className="text-white hover:text-yellow-400"
+              >
                 Register
-              </Link>
-              <Link to="/login" className="text-white hover:text-yellow-400">
+              </NavLink>
+              <NavLink to="/login" className="text-white hover:text-yellow-400">
                 Login
-              </Link>
+              </NavLink>
             </>
           )}
         </div>
@@ -80,38 +97,44 @@ const Navbar = () => {
         {/* for mobile  */}
         {show && (
           <div className="z-50 items-center  flex flex-col absolute right-0 top-20 bg-green-600 p-6 gap-y-2 ">
-            <Link to="/" className="text-white hover:text-yellow-400 ">
+            <NavLink to="/" className="text-white hover:text-yellow-400 ">
               Home
-            </Link>
-            <Link to="/blogs" className="text-white hover:text-yellow-400 ">
+            </NavLink>
+            <NavLink to="/blogs" className="text-white hover:text-yellow-400 ">
               Blogs
-            </Link>
+            </NavLink>
 
-            <Link to="/register" className="text-white hover:text-yellow-400">
+            <NavLink
+              to="/register"
+              className="text-white hover:text-yellow-400"
+            >
               Register
-            </Link>
+            </NavLink>
 
             {user && (
-              <Link
+              <NavLink
                 to="/updateProfile"
                 className="text-white hover:text-yellow-400 "
               >
                 Update Profile
-              </Link>
+              </NavLink>
             )}
 
             {user ? (
               <div className="relative flex items-center flex-col gap-y-2">
-                <Link to={"/profile"} className="flex items-center">
+                <NavLink
+                  to={"/profile"}
+                  className="flex items-center text-white hover:text-yellow-400"
+                >
                   <img
                     title={user?.displayName}
                     referrerPolicy="no-referrer"
                     src={user?.photoURL}
                     alt="User Profile"
-                    className="w-10 h-10 rounded-full border-2 border-white"
+                    className="w-10 h-10 rounded-full border-2 border-white mr-3"
                   />
-                  <span>My Profile</span>
-                </Link>
+                  My Profile
+                </NavLink>
                 <button
                   onClick={handleClick}
                   className="ml-4 text-white hover:text-yellow-400 "
@@ -121,15 +144,18 @@ const Navbar = () => {
               </div>
             ) : (
               <>
-                <Link
+                <NavLink
                   to="/register"
                   className="text-white hover:text-yellow-400"
                 >
                   Register
-                </Link>
-                <Link to="/login" className="text-white hover:text-yellow-400">
+                </NavLink>
+                <NavLink
+                  to="/login"
+                  className="text-white hover:text-yellow-400"
+                >
                   Login
-                </Link>
+                </NavLink>
               </>
             )}
           </div>

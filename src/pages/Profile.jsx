@@ -8,11 +8,11 @@ export default function Profile() {
   return (
     <div className="flex flex-col items-center justify-center my-36">
       {/* Welcome Title */}
-      <h1 className="text-3xl font-bold text-blue-600 mb-6">
+      <h1 className="text-3xl font-bold text-blue-600 px-5 md:px-0 mb-6">
         Welcome, {user.displayName}!
       </h1>
 
-      <div className="bg-white shadow-lg rounded-lg p-6 w-96 text-center">
+      <div className="bg-white shadow-lg rounded-lg p-6 max-w-96 text-center">
         <img
           src={user.photoURL}
           alt="User Profile"

@@ -15,7 +15,7 @@ My project name is Adventurea
   <li>react-toastify</li>
 </ul>
 
-# key features of your project:
+# key features of my project:
 
 <ul>
   <li>1. when you click the "Explore Now" button what time it will take to adventure details page if you logged in</li>

@@ -27,7 +27,9 @@ export default function UpdateProfile() {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error.message);
+        toast(error.message, {
+          position: "top-center",
+        });
       });
   };
 

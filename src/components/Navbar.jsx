@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AuthContext } from "../context/authContext";
 
 const Navbar = () => {
@@ -18,7 +19,9 @@ const Navbar = () => {
         navigate("/login");
       })
       .catch((error) => {
-        console.log(error);
+        toast(error.message, {
+          position: "top-center",
+        });
       });
   };
 

@@ -58,7 +58,9 @@ export default function Register() {
             navigate("/");
           })
           .catch((error) => {
-            console.log(error);
+            toast(error.message, {
+              position: "top-center",
+            });
           });
       })
       .catch((error) => {
